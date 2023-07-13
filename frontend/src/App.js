@@ -47,7 +47,7 @@ import NotFound from "./component/layout/Not Found/NotFound";
 function App() {
   
   const {isAuthenticated,loading ,user}=useSelector(state=>state.user)
-  const [stripeApiKey, setStripeApiKey] = useState("pk_test_51NRX9JSED5AFzfAFdWSgiO7IzocaVlqr2JjA49dplC2TOG4xJx0PAFWzIqSa5kcypqmHZV504pjwXN9ANJEpvIkg00dPAc0EqK");
+  const [stripeApiKey, setStripeApiKey] = useState("");
 
 
   
