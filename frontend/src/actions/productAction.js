@@ -159,7 +159,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
-      payload: data.product,
+      payload: data,
     });
   } catch (error) {
     dispatch({

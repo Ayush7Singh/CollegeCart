@@ -14,9 +14,9 @@ exports.registerUser=catchasyncerrors(async(req,res,next)=>{
     width:150,
     crop:"scale",
    })
-    const {name,email,password,role}=req.body;
+    const {name,email,password,phoneno,regno,role}=req.body;
     const user=await User.create({
-        name,email,password,role,avatar:{
+        name,email,password,regno,phoneno,role,avatar:{
             public_id:myCloud.public_id,
             url:myCloud.secure_url,
         },
@@ -155,6 +155,7 @@ exports.updateprofile=catchasyncerrors(async(req,res,next)=>{
     const newUserdata={
         name:req.body.name,
         email:req.body.email,
+        phoneno:req.body.phoneno,
     }
 
 if(req.body.avatar !== ""){

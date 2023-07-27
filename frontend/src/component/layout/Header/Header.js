@@ -1,54 +1,73 @@
-import React from "react";
-import { ReactNavbar } from "overlay-navbar";
-import logo from "../../../images/logo.png";
+import React, { useState } from "react";
 import {MdAccountCircle } from "react-icons/md";
 import {MdSearch } from "react-icons/md";
 import {MdAddShoppingCart } from "react-icons/md";
-const options = {
-  burgerColorHover: "#eb4034",
-  logo,
-  logoWidth: "20vmax",
-  navColor1: "white",
-  logoHoverSize: "10px",
-  logoHoverColor: "#eb4034",
-  link1Text: "Home",
-  link2Text: "Products",
-  link3Text: "Contact",
-  link4Text: "About",
-  link1Url: "/",
-  link2Url: "/products",
-  link3Url: "/contact",
-  link4Url: "/about",
-  link1Size: "1.3vmax",
-  link1Color: "rgba(35, 35, 35,0.8)",
-  nav1justifyContent: "flex-end",
-  nav2justifyContent: "flex-end",
-  nav3justifyContent: "flex-start",
-  nav4justifyContent: "flex-start",
-  link1ColorHover: "#eb4034",
-  link1Margin: "1vmax",
-  
-  profileIconUrl: "/login",
-  searchIconUrl:	"/search",
-  cartIconUrl	:"/cart",
+import { GiHamburgerMenu } from "react-icons/gi";
+import { NavLink } from "react-router-dom";
 
-  profileIcon:true,
-  ProfileIconElement: MdAccountCircle, 
-  searchIcon:true,
-  SearchIconElement:MdSearch,
-  cartIcon:true,
-  CartIconElement:MdAddShoppingCart,
-  profileIconColor: "rgba(35, 35, 35,0.8)",
-  searchIconColor: "rgba(35, 35, 35,0.8)",
-  cartIconColor: "rgba(35, 35, 35,0.8)",
-  profileIconColorHover: "#eb4034",
-  searchIconColorHover: "#eb4034",
-  cartIconColorHover: "#eb4034",
-  cartIconMargin: "1vmax",
-};
+
 
 const Header = () => {
-  return <ReactNavbar {...options} />;
+  const [showMediaIcons, setShowMediaIcons] = useState(false);
+  return (
+    <>
+      <nav className="main-nav">
+        {/* 1st logo part  */}
+        <div className="logo">
+        <img className="img" src="https://res.cloudinary.com/dhwhucfhy/image/upload/v1690440118/logo_ddrvxd.png" />
+        </div>
+
+        {/* 2nd menu part  */}
+        <div
+          className={
+            showMediaIcons ? "menu-link mobile-menu-link" : "menu-link"
+          }>
+          <ul>
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/products">Products</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* 3rd social media links */}
+        <div className="social-media">
+          <ul className={
+            showMediaIcons ? "search social-media-desktop" : "social-media-desktop"}>
+            
+  
+            <li>
+            <NavLink to="/login"><MdAccountCircle className="facebook" /></NavLink>
+              
+            </li>
+            <li>
+            <NavLink to="/search"><MdSearch className="facebook" /></NavLink>
+            </li>
+            <li>
+            <NavLink to="/cart"><MdAddShoppingCart className="facebook" /></NavLink>
+            </li>
+          </ul>
+
+          {/* hamburget menu start  */}
+          <div className="hamburger-menu">
+            <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+              <GiHamburgerMenu className="ham"/>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+     
+    </>
+  );
 };
 
 export default Header;

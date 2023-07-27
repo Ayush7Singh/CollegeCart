@@ -31,7 +31,7 @@ const Home = () => {
 <MetaData title="ECOMMERCE" />
 
         <div className="banner">
-            <p>Welcome to Ecommerce</p>
+            <p>Welcome to Lend-Borr</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
 
             <a href="#container">
@@ -40,8 +40,8 @@ const Home = () => {
               </button>
             </a>
           </div>
-          <h2 className="homeHeading">Featured Products</h2>
-          <div className="container" id="container">
+          <h2 className="homeHeading" id="container">Featured Products</h2>
+          <div className="container" >
           {products &&
               products.map((product) => (
                 <Product product={product} />

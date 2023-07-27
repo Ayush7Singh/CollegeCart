@@ -2,12 +2,10 @@
   background-color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
-  padding: 4rem 0;
+  padding: 8rem 0;
 }
 
-.sidebar > a:first-child {
-  padding: 0;
-}
+
 .sidebar > a > img {
   width: 100%;
   transition: all 0.5s;
@@ -19,10 +17,11 @@
 .sidebar a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.493);
-  font: 200 1rem "Roboto";
+  font: 2rem "Roboto";
   padding: 2rem;
   transition: all 0.5s;
 }
+
 .sidebar a:hover {
   color: tomato;
   transform: scale(1.1);
@@ -38,4 +37,14 @@
 
 .MuiTypography-root {
   background-color: #fff !important;
+}
+
+
+.sidebar .MuiTreeView-root .MuiTreeItem-root .css-1g86id8-MuiTreeItem-content {
+  padding: 0 0px;
+  
+}
+
+.sidebar .MuiTreeView-root .MuiTreeItem-root .css-1g86id8-MuiTreeItem-content .MuiTreeItem-label{
+  font: 2rem "Roboto";
 }

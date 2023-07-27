@@ -42,6 +42,14 @@ const Profile = () => {
                 <p>{user.email}</p>
               </div>
               <div>
+                <h4>Phone Number</h4>
+                <p>{user.phoneno}</p>
+              </div>
+              <div>
+                <h4>Registration Number</h4>
+                <p>{user.regno}</p>
+              </div>
+              <div>
                 <h4>Joined On</h4>
                 <p>{String(user.createdAt).substr(0, 10)}</p>
               </div>

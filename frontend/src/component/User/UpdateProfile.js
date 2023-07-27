@@ -21,6 +21,7 @@ const UpdateProfile = () => {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneno, setPhone] = useState("");
   const [avatar, setAvatar] = useState();
   const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
 
@@ -31,6 +32,7 @@ const UpdateProfile = () => {
 
     myForm.set("name", name);
     myForm.set("email", email);
+    myForm.set("phoneno", phoneno);
     myForm.set("avatar", avatar);
     dispatch(updateProfile(myForm));
   };
@@ -52,6 +54,7 @@ const UpdateProfile = () => {
     if (user) {
       setName(user.name);
       setEmail(user.email);
+      setPhone(user.phoneno);
       setAvatarPreview(user.avatar.url);
     }
 
@@ -107,6 +110,17 @@ const UpdateProfile = () => {
                     name="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="updateProfilePhone">
+                  <MailOutlineIcon />
+                  <input
+                    type="number"
+                    placeholder="Phonr Number"
+                    required
+                    name="phoneno"
+                    value={phoneno}
+                    onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
 

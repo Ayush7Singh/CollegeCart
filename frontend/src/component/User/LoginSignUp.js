@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import FaceIcon from "@mui/icons-material/Face";
+import PhoneIcon from "@mui/icons-material/Phone";
+import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -34,8 +36,10 @@ const LoginSignUp = () => {
     name: "",
     email: "",
     password: "",
+    regno:"",
+    phoneno:"",
   });
-  const { name, email, password } = user;
+  const { name, email, password,phoneno,regno } = user;
 
   const [avatar, setAvatar] = useState(profile);
   const [avatarPreview, setAvatarPreview] = useState(profile);
@@ -54,6 +58,8 @@ const LoginSignUp = () => {
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("password", password);
+    myForm.set("regno", regno);
+    myForm.set("phoneno", regno);
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
   };
@@ -172,6 +178,28 @@ const LoginSignUp = () => {
                     required
                     name="email"
                     value={email}
+                    onChange={registerDataChange}
+                  />
+                </div>
+                <div className="signUpregno">
+                  <PermIdentityIcon />
+                  <input
+                    type="number"
+                    placeholder="Registration Number"
+                    required
+                    name="regno"
+                    value={regno}
+                    onChange={registerDataChange}
+                  />
+                </div>
+                <div className="signUpphoneno">
+                  <PhoneIcon />
+                  <input
+                    type="number"
+                    placeholder="Phone Number"
+                    required
+                    name="phoneno"
+                    value={phoneno}
                     onChange={registerDataChange}
                   />
                 </div>

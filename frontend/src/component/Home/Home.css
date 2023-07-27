@@ -5,6 +5,7 @@
     background-size: cover;
     height: 100vmin;
     display: flex;
+    position: relative;
     flex-direction: column;
     text-align: center;
     align-items: center;
@@ -19,7 +20,7 @@
   }
   
   .banner > p {
-    font: 300 1.4vmax "Lucida Sans";
+    font: 300 1.7vmax "Roboto";
   }
   
   .banner > a > button {
@@ -86,15 +87,16 @@
   }
   
   .productCard > div {
-    margin: 0.5vmax;
+    margin:1vmax 0.5vmax;
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
   
   .productCardSpan {
-    margin: 0.5vmax;
-    font: 300 0.7vmax "Roboto";
+   
+    font: 300 0.95vmax "Roboto";
+    color:rgb(107, 107, 112);
   }
   
   .productCard > p {
@@ -105,10 +107,11 @@
   }
   
   .productCard > span {
-    margin: 0.5vmax;
+    margin:1vmax 0.5vmax;
     color: tomato;
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-    font-size: 1vmax;
+    font-size: 1.2vmax;
+    margin-bottom: 0;
   }
   
   .productCard:hover {

@@ -58,6 +58,7 @@ footer {
     font-family: "Roboto";
     font-size: 1.4vmax;
     text-decoration: underline;
+    padding: 1vmax;
   }
   .rightFooter > a {
     text-decoration: none;
@@ -66,9 +67,13 @@ footer {
     color: white;
     transition: all 0.5s;
     margin: 0.5vmax;
+    align-items: center;
+  
+    display: flex;
   }
   
   .rightFooter > a:hover {
     color: #eb4034;
   }
+
   

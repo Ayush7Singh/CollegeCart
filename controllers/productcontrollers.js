@@ -3,6 +3,7 @@ const ErrorHandler = require("../utils/errorhandler");
 const catchasyncerrors = require("../middleware/catchasyncerrors");
 const Features = require("../utils/features");
 const cloudinary = require("cloudinary");
+const User=require("../models/usermodels");
 
 //create product--admin
 exports.createProduct = catchasyncerrors(async (req, res, next) => {
@@ -67,9 +68,13 @@ exports.getsingleproduct = catchasyncerrors(async (req, res, next) => {
         return next(new ErrorHandler("Product not found", 404));
 
     }
+    const _id=product.user;
+    const user=await User.findById({_id});
     res.status(200).json({
         success: true,
         product,
+        user,
+       
     })
 });
 
