@@ -27,7 +27,7 @@ const About = () => {
             </Button>
             <span>
               This is a sample website made by Ayush Singh. Only with the
-              purpose to learnteach MERN Stack development.
+              purpose to learn MERN Stack development.
             </span>
           </div>
           <div className="aboutSectionContainer2">

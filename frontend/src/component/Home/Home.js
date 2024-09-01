@@ -1,5 +1,4 @@
 import React, { Fragment,useEffect } from 'react'
-
 import "./Home.css";
 import Product from "./ProductCard.js";
 import MetaData from "../layout/MetaData";
@@ -28,11 +27,11 @@ const Home = () => {
         <Loader />
       ) : (
     <Fragment>
-<MetaData title="ECOMMERCE" />
+<MetaData title="College Cart" />
 
         <div className="banner">
-            <p>Welcome to Lend-Borr</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+            {/* <p>Welcome to College Cart</p>
+            <h1>FIND AMAZING PRODUCTS BELOW</h1> */}
 
             <a href="#container">
               <button>

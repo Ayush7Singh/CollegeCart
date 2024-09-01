@@ -23,7 +23,6 @@ import ResetPassword from "./component/User/ResetPassword.js"
 import Cart from "./component/Cart/Cart.js"
 import Shipping from "./component/Cart/Shipping.js"
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js"
-import axios from "axios";
 import Payment from "./component/Cart/Payment.js"
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -42,6 +41,7 @@ import ProductReviews from "./component/Admin/ProductReviews.js"
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
+import axios from "axios";
 
 
 function App() {
@@ -49,9 +49,11 @@ function App() {
   const {isAuthenticated,loading ,user}=useSelector(state=>state.user)
   const [stripeApiKey, setStripeApiKey] = useState("");
 
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey");
 
-  
-
+    setStripeApiKey(data.stripeApiKey);
+  }
 
   useEffect(() => {
     WebFont.load({
@@ -59,10 +61,8 @@ function App() {
         families: ["Roboto", "Droid Sans", "Chilanka"],
       },
     });
-
-    store.dispatch(loadUser());
-    
-    
+    getStripeApiKey();
+    store.dispatch(loadUser());  
   },[])
   //window.addEventListener("contextmenu", (e) => e.preventDefault());
 
@@ -71,8 +71,6 @@ function App() {
       <Router>
         <Header />
         {isAuthenticated && <UserOptions user={user} />}
-
-        
         
         <Routes><Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
@@ -84,6 +82,7 @@ function App() {
         
        <Route path="/account" element={<ProtectedRoute  ><Profile /></ProtectedRoute>}/>
        <Route path="/me/update" element={<ProtectedRoute ><UpdateProfile /></ProtectedRoute>}/>
+       <Route path="/new/product" element={<ProtectedRoute><NewProduct /></ProtectedRoute>}/>
        <Route path="/password/update" element={<ProtectedRoute ><UpdatePassword /></ProtectedRoute>}/>
        
        <Route path="/password/forgot" element={<ForgotPassword />} />
@@ -99,10 +98,9 @@ function App() {
         <Route path="/orders" element={<ProtectedRoute ><MyOrders /></ProtectedRoute>}/>
         <Route path="/order/:id" element={<ProtectedRoute ><OrderDetails /></ProtectedRoute>}/>
         <Route path="/cart" element={<ProtectedRoute ><Cart /></ProtectedRoute>}/>
-        
+
         <Route path="/admin/dashboard" element={<ProtectedRoute  isAdmin={true} ><Dashboard /></ProtectedRoute>}/>
         <Route path="/admin/products" element={<ProtectedRoute isAdmin={true} ><ProductList /></ProtectedRoute>}/>
-        <Route path="/admin/product" element={<ProtectedRoute isAdmin={true} ><NewProduct /></ProtectedRoute>}/>
         <Route path="/admin/product/:id" element={<ProtectedRoute isAdmin={true} ><UpdateProduct /></ProtectedRoute>}/>
         <Route path="/admin/orders" element={<ProtectedRoute isAdmin={true} ><OrderList /></ProtectedRoute>}/>
         <Route path="/admin/order/:id" element={<ProtectedRoute isAdmin={true} ><ProcessOrder /></ProtectedRoute>}/>

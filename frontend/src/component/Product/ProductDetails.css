@@ -5,13 +5,20 @@
   padding:0 6vmax;
   box-sizing: border-box;
   display: flex;
+  margin:3vmax;
+  justify-content: center;
+}
+.ProductDetails3 {
+  background-color: rgb(255, 255, 255);
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
 }
 #ProductDetails2{
-  display: flex;
-  position: relative;
- width:50%;
- left:25vmax;
-  padding:3vmax;
+  
+ width:30%;
+ margin:0.5vmax;
  align-items: center;
  justify-content: center;
 }
@@ -28,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
  
-  padding: 2vmax;
+  padding: 1vmax;
   box-sizing: border-box;
   border: 1px solid white;
 }
@@ -51,6 +58,7 @@
   color: rgb(54, 54, 54);
   font: 600 1.3vmax "Roboto";
   padding:1vmax;
+  text-align: center;
 }
 .detailsBlock-11{
   width:100%;
@@ -90,7 +98,9 @@
 .detailsBlock-3-1-1 > button {
   border: none;
   background-color: rgba(0, 0, 0, 0.616);
-  padding: 0.5vmax;
+  width: 2rem;
+  margin:auto;
+  padding: 6px;
   cursor: pointer;
   color: white;
   transition: all 0.5s;
@@ -102,7 +112,7 @@
 .detailsBlock-3-1-1 > input {
   border: none;
   padding: 0.5vmax;
-  width: 1vmax;
+  width: 2vmax;
   text-align: center;
   outline: none;
   font: 400 0.8vmax "Roboto";
@@ -182,7 +192,7 @@
   padding: 1vmax;
   width: 20vmax;
   margin: auto;
-  margin-bottom: 4vmax;
+ 
 }
 .reviews {
   display: flex;

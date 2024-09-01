@@ -31,6 +31,7 @@ const Profile = () => {
               <h1>My Profile</h1>
               <img src={user.avatar.url} alt={user.name} />
               <Link to="/me/update">Edit Profile</Link>
+              <Link to="/new/product">Add Product</Link>
             </div>
             <div>
               <div>

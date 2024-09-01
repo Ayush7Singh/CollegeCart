@@ -59,7 +59,7 @@ const LoginSignUp = () => {
     myForm.set("email", email);
     myForm.set("password", password);
     myForm.set("regno", regno);
-    myForm.set("phoneno", regno);
+    myForm.set("phoneno", phoneno);
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
   };

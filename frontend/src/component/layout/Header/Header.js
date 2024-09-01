@@ -15,6 +15,7 @@ const Header = () => {
         {/* 1st logo part  */}
         <div className="logo">
         <img className="img" src="https://res.cloudinary.com/dhwhucfhy/image/upload/v1690440118/logo_ddrvxd.png" />
+       
         </div>
 
         {/* 2nd menu part  */}

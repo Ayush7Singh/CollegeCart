@@ -9,11 +9,11 @@ const cloudinary=require("cloudinary");
 
 //register user
 exports.registerUser=catchasyncerrors(async(req,res,next)=>{
+    //  console.log(req.body);
    const myCloud=await cloudinary.v2.uploader.upload(req.body.avatar,{
     folder:"avatars",
-    width:150,
-    crop:"scale",
    })
+//    console.log(myCloud);
     const {name,email,password,phoneno,regno,role}=req.body;
     const user=await User.create({
         name,email,password,regno,phoneno,role,avatar:{
@@ -73,7 +73,7 @@ exports.forgotpassword=catchasyncerrors(async(req,res,next)=>{
     try {
         await sendEmail({
             email:user.email,
-            subject:"Ecommerce Password recovery",
+            subject:"Lend Borr Password recovery",
             message,
         })
         res.status(200).json({

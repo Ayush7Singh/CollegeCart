@@ -3,6 +3,7 @@ import "./Header.css";
 import { SpeedDial, SpeedDialAction } from "@mui/lab";
 import Backdrop from '@mui/material/Backdrop';
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import DensityMediumRoundedIcon from '@mui/icons-material/DensityMediumRounded';
 import PersonIcon from "@mui/icons-material/Person";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import ListAltIcon from "@mui/icons-material/ListAlt";
@@ -74,11 +75,7 @@ const UserOptions = ({user}) => {
             direction="down"
             className="speedDial"
             icon={
-              <img
-                className="speedDialIcon"
-                src={user.avatar.url ? user.avatar.url : "../../../images/Profile.png"}
-                alt="Profile"
-              />
+              <p className="speedDialIcon"><DensityMediumRoundedIcon style={{width:"26px",height:"26px"}}/></p>
             }
           >
             {options.map((item) => (

@@ -1,5 +1,5 @@
 .banner {
-  background-image: url("../../images/cover.jfif");
+  background-image: url("../../images/cover.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -10,18 +10,19 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    color: white;
+    color:black;
   }
   
-  .banner > h1 {
+  /* .banner > h1 {
     margin: 5vmax;
-  
-    font: 600 2.5vmax "Roboto";
+    background-color:beige;
+    opacity: 50%; 
+    font: 600 1.9vmax "Roboto";
   }
   
   .banner > p {
     font: 300 1.7vmax "Roboto";
-  }
+  } */
   
   .banner > a > button {
     margin-bottom: 5vmax;

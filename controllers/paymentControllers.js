@@ -6,8 +6,9 @@ exports.processPayment = catchasyncerrors(async (req, res, next) => {
   const myPayment = await stripe.paymentIntents.create({
     amount: req.body.amount,
     currency: "inr",
+    description: 'Exchange of goods within college MNNIT',
     metadata: {
-      company: "Ecommerce",
+      company: "College Cart",
     },
   });
 

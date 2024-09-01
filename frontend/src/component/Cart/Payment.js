@@ -98,7 +98,7 @@ const Payment = () => {
           };
 
           dispatch(createOrder(order));
-
+          localStorage.setItem("cartItems","");
           navigate("/success");
         } else {
           alert.error("There's some issue while processing payment ");

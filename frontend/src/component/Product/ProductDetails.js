@@ -1,63 +1,54 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
-import { clearErrors, getProductDetails, newReview} from "../../actions/productAction";
+import { clearErrors, getProductDetails} from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import { useParams } from 'react-router-dom';
-import ReviewCard from "./ReviewCard.js";
 import { useAlert } from "react-alert";
-import { Rating } from "@mui/lab";
 import { addItemsToCart } from "../../actions/cartAction";
-import {Dialog,DialogActions,DialogContent,DialogTitle,Button} from "@mui/material";
-import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 
 
 
 const ProductDetails = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
   const alert = useAlert();
-  const { product,user,loading, error } = useSelector((state) => state.productDetails
-  );
-
-
- 
+  const { product,user,loading, error } = useSelector((state) => state.productDetails);
+  const {isAuthenticated } = useSelector((state) => state.user);
 
   const [quantity, setQuantity] = useState(1);
   
-
-
   const increaseQuantity = () => {
     if (product.Stock <= quantity) return;
-
     const qty = quantity + 1;
     setQuantity(qty);
   };
 
   const decreaseQuantity = () => {
     if (1 >= quantity) return;
-
     const qty = quantity - 1;
     setQuantity(qty);
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(id, quantity));
-    alert.success("Item Added To Cart");
+    if(!isAuthenticated){
+      navigate("/login");
+    }
+    else{
+      dispatch(addItemsToCart(id, quantity));
+      alert.success("Item Added To Cart");
+    }    
   };
 
-  
-  
   useEffect(() => {
     if (error) {
         alert.error(error);
         dispatch(clearErrors());
       }
-     
-  
-      
     dispatch(getProductDetails(id));
   }, [dispatch,id, error, alert]);
 
@@ -67,13 +58,12 @@ const ProductDetails = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title={`${product.name} -- ECOMMERCE`} />
+          <MetaData title={`${product.name} -- College Cart`} />
           
           <div className="ProductDetails">
             <div>
               <Carousel>
-                {product.images &&
-                  product.images.map((item, i) => (
+                {product.images && product.images.map((item, i) => (
                     <img
                       className="CarouselImage"
                       key={i}
@@ -119,14 +109,15 @@ const ProductDetails = () => {
          
             </div>
             <h3 className="reviewsHeading">SELLER</h3>
-            <div className="ProductDetails" id="ProductDetails2">
-         
-                    <div className="detailsBlock-11"><h2><span className="bad">Name - </span>{user.name}</h2>
-                      <h2 className="abc"><span className="bad">Email - </span>{user.email}</h2>
-                      <h2 className="abc"><span className="bad">PhoneNo - </span>{user.phoneno}</h2>
-                      <h2><span className="bad">RegistrationNo - </span>{user.regno}</h2></div>
-                   
-                    </div>
+            <div className="ProductDetails3" >
+               {/* {user?.avatar?.url ? (<img src={user.avatar.url} alt="User Photo" />) : (<p>No image</p>)} */}
+              <div className="detailsBlock-11" id="ProductDetails2"><h2><span className="bad">Name - </span>{user.name}</h2>
+                <h2 className="abc"><span className="bad">Email - </span>{user.email}</h2>
+               
+                <h2 className="abc"><span className="bad">PhoneNo - </span>{user.phoneno}</h2>
+                <h2><span className="bad">RegistrationNo - </span>{user.regno}</h2>
+              </div>
+            </div>
            
 
             
